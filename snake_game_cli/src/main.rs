@@ -8,7 +8,7 @@ use std::io::stdout;
 use std::thread;
 use std::time::{Duration, Instant};
 
-const WIDTH: u16 = 40;
+const WIDTH: u16 = 80;
 const HEIGHT: u16 = 20;
 
 fn main() {
