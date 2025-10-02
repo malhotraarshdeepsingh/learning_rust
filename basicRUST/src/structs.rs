@@ -22,6 +22,22 @@ impl Debug for Rectangle {
     }
 }
 
+pub trait Summary {
+    fn summarize(&self) -> String;
+}
+
+pub trait Fix {
+    fn fix(&self) -> String;
+}
+
+pub fn notify(u: impl Summary) {
+    println!("Summary: {}", u.summarize());
+}
+
+pub fn notify_both<T: Summary + Fix> (u: T) {
+    println!("Fix: {}", u.fix());
+}
+
 fn main() {
     // Structs
     let user1 = User {
