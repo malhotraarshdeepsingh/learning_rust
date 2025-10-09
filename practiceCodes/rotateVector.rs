@@ -14,6 +14,21 @@ fn rotate_vector<T> (Vec<T>, k: usize) -> Vec<T> {
     result
 }
 
+// without allocating a new Vec
+fn rotate_vector_no_alloc<T> (mut V: Vec<T>, k: usize) -> Vec<T> {
+    let len = V.len();
+
+    if len == 0 { return V; }
+
+    let k = k % len; // Handle cases where k >= len
+
+    V.reverse();
+    V[..k].reverse();
+    V[k..].reverse();
+
+    V
+}
+
 fn main() {
     let v = vec![1, 2, 3, 4, 5];
     let k = 2;
