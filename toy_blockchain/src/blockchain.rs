@@ -60,7 +60,7 @@ impl Chain {
             amount,
         };
         self.current_transactions.push(transaction);
-        
+
         true
     }
 
@@ -88,19 +88,19 @@ impl Chain {
             nonce: 0,
             previous_hash: self.last_hash(),
             merkle: String::new(),
-            difficulty: self.difficulty
+            difficulty: self.difficulty,
         };
 
         let reward_trans = Transaction {
             sender: String::from("Root"),
             receiver: self.miner_address.clone(),
-            amount: self.reward
+            amount: self.reward,
         };
 
         let mut block = Block {
             header,
             count: 0,
-            transactions: vec![]
+            transactions: vec![],
         };
 
         block.transactions.push(reward_trans);
@@ -154,7 +154,7 @@ impl Chain {
                     } else {
                         header.nonce += 1;
                     }
-                },
+                }
                 Err(_) => {
                     header.nonce += 1;
                     continue;

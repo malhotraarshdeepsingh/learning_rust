@@ -2,7 +2,7 @@ use std::error::Error;
 
 use csv;
 
-fn main(){
+fn main() {
     if let Err(err) = read_csv("./username.csv") {
         eprintln!("{}", err);
     }

@@ -12,15 +12,15 @@ fn main() {
     // initialising using rust macro
     let num = vec![1, 2, 3, 4, 5];
     let even = even_numbers(&num);
-    
+
     println!("{:?}", v);
     println!("{:?}", evens);
     println!("{:?}", num);
-    println!("{:?}", even); 
+    println!("{:?}", even);
 
     // Hashmaps
     let mut users: HashMap<String, i32> = HashMap::new();
-    users.insert(String::from("Alice"), 23);    
+    users.insert(String::from("Alice"), 23);
     users.insert(String::from("Bob"), 34);
 
     let user1 = users.get("Alice");

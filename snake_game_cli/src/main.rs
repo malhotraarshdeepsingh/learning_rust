@@ -53,7 +53,7 @@ fn main() {
                     KeyCode::Left if direction != KeyCode::Right => KeyCode::Left,
                     KeyCode::Right if direction != KeyCode::Left => KeyCode::Right,
                     KeyCode::Esc => break, // exit the game
-                    _ => direction, // default behaviour
+                    _ => direction,        // default behaviour
                 };
             }
         }

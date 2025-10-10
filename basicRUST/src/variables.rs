@@ -19,7 +19,6 @@ fn main() {
     }
     print!("Number: {}", num);
 
-
     // Boolean
     let is_male = false;
     let is_above_18 = true;

@@ -2,13 +2,13 @@ extern crate flate2;
 
 use flate2::write::GzEncoder;
 use flate2::Compression;
+use std::env::args;
 use std::fs::File;
 use std::io::copy;
 use std::io::BufReader;
 use std::time::Instant;
-use std::env::args;
 
-fn main(){
+fn main() {
     if args().len() != 3 {
         eprintln!("Usage: {} <source> <destination>", args().next().unwrap());
         return;
@@ -20,6 +20,12 @@ fn main(){
     copy(&mut input, &mut encoder).unwrap();
     let output = encoder.finish().unwrap();
     println!("Elapsed time: {:?}", start.elapsed());
-    println!("Original size: {} bytes", input.get_ref().metadata().unwrap().len());
-    println!("Compressed size: {} bytes", output.metadata().unwrap().len());
+    println!(
+        "Original size: {} bytes",
+        input.get_ref().metadata().unwrap().len()
+    );
+    println!(
+        "Compressed size: {} bytes",
+        output.metadata().unwrap().len()
+    );
 }

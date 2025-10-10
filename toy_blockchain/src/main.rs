@@ -2,8 +2,8 @@
 extern crate serde_derive;
 
 use std::io;
-use std::process;
 use std::io::Write;
+use std::process;
 
 mod blockchain;
 
@@ -20,10 +20,17 @@ fn main() {
     println!("Enter difficulty: ");
     io::stdout().flush();
     io::stdin().read_line(&mut difficulty);
-    let difficulty: u32 = difficulty.trim().parse::<u32>().expect("were expecting a number");
+    let difficulty: u32 = difficulty
+        .trim()
+        .parse::<u32>()
+        .expect("were expecting a number");
     println!("Generating genisis block...");
 
-    let mut chain = blockchain::Chain::new(miner_address.trim().to_string(), reward.trim().parse::<f64>().unwrap_or(100.0), difficulty);
+    let mut chain = blockchain::Chain::new(
+        miner_address.trim().to_string(),
+        reward.trim().parse::<f64>().unwrap_or(100.0),
+        difficulty,
+    );
 
     loop {
         println!("Menu:");
@@ -82,7 +89,12 @@ fn main() {
                 io::stdout().flush();
                 io::stdin().read_line(&mut new_difficulty);
 
-                let res = chain.update_difficulty(new_difficulty.trim().parse::<u32>().unwrap_or(chain.difficulty));
+                let res = chain.update_difficulty(
+                    new_difficulty
+                        .trim()
+                        .parse::<u32>()
+                        .unwrap_or(chain.difficulty),
+                );
                 match res {
                     true => println!("Difficulty updated!"),
                     false => println!("Difficulty update failed!"),
@@ -94,7 +106,8 @@ fn main() {
                 io::stdout().flush();
                 io::stdin().read_line(&mut new_reward);
 
-                let res = chain.update_reward(new_reward.trim().parse::<f64>().unwrap_or(chain.reward));
+                let res =
+                    chain.update_reward(new_reward.trim().parse::<f64>().unwrap_or(chain.reward));
                 match res {
                     true => println!("Reward updated!"),
                     false => println!("Reward update failed!"),

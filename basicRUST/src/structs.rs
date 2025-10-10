@@ -34,7 +34,7 @@ pub fn notify(u: impl Summary) {
     println!("Summary: {}", u.summarize());
 }
 
-pub fn notify_both<T: Summary + Fix> (u: T) {
+pub fn notify_both<T: Summary + Fix>(u: T) {
     println!("Fix: {}", u.fix());
 }
 
