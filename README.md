@@ -10,7 +10,6 @@ A comprehensive repository for learning and experimenting with the Rust programm
 - [Getting Started](#getting-started)
 - [Requirements](#requirements)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
