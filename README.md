@@ -64,6 +64,12 @@ A simple blockchain prototype, illustrating cryptographic hashes, proof-of-work,
 ### `unzip/`
 Projects focusing on decompressing files, furthering understanding of file formats and Rust's ecosystem.
 
+### `basic_auth/`
+Implement basic authentication for HTTP requests in Rust.
+
+### `dwd_img/`
+Download and save images from specified URLs using Rust.
+
 ## Getting Started
 
 Clone the repository:
